@@ -1,0 +1,46 @@
+<%- include('../base_header'); -%>
+
+<link rel="stylesheet" href="./style_galeria.css">
+
+
+</head>
+<body>
+
+    <h1>Listado Locales:
+
+        <%= title %>
+
+    </h1>
+
+    <div class="container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Esta Abierto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < locales.length; i++) { %>
+                    <tr>
+                        <td><%= locales[i]._id %></td>
+                        <td><%= locales[i].nombre %></td>
+                        <td><%= locales[i].estaAbierto %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <% for (var i = 0; i < locales.length; i++) { %>
+                <%- include('./local.ejs',{ local: locales[i] }) %>
+            <% } %>
+
+        </div>
+    </div>
+</body>
+<%- include('../base_footer'); -%>

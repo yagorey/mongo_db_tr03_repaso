@@ -1,0 +1,2 @@
+PORT = 3000
+MONGO_DB = mongodb+srv://dev:A.joker.1@dev.kdfi4.mongodb.net/noches_de_bohemia?retryWrites=true&w=majority
