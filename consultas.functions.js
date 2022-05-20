@@ -212,3 +212,16 @@ const query_newFromOther_2 = async (req, res) => {
 
     res.send(newPersonaje)
 }
+
+// Reemplace
+const query_replace = async (req, res) => {
+    const dbQuery = {
+        'caracteristicas_rol.fuerza': { $gte: 20 }
+    }
+
+    const personaje = await mPersonaje.findOne(dbQuery)
+
+    const newPersonaje = await mPersonaje.replaceOne(dbQuery, personaje)
+
+    res.send(newPersonaje)
+}
