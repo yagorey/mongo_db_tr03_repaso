@@ -6,7 +6,10 @@ const schema = {
     titulo     : { type: String, default: 'Gollum' },
     descripcion: { type: String, default: 'Gollum' },
     cuando     : { type: Date, default: Date.now },
-    orden      : { type: Number, default: 0 }
+    orden      : { type: Number, default: 0 },
+    anecdotas  : [
+        { type: Schema.Types.ObjectId, ref: 'anecdota' }
+    ]
 }
 const Esquema = new Schema(schema, params);
 const model = mongoose.model('capitulo', Esquema);
