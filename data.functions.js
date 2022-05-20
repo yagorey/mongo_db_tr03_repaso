@@ -1,5 +1,16 @@
 const mPersonaje = require('./models/personaje.model')
 
+const buscar_personajes = async (req, res) => {
+
+    // Busca un personaje que tenga fuerza > 20
+    // GREATHER THAN => GOKU TONTOCULO
+    const dbQuery = {
+        'caracteristicas_rol.fuerza': { $gt: 20 }
+    }
+    const personajes = await mPersonaje.find(dbQuery)
+
+}
+
 const crear_locales = async (req, res) => {
 
     let personaje = new mPersonaje()
