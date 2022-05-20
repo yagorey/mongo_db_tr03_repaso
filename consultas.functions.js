@@ -225,3 +225,34 @@ const query_replace = async (req, res) => {
 
     res.send(newPersonaje)
 }
+
+
+// Recoger todos personajes que la raza sea elfos y ordenarlos por nombre
+const query_find_sort = async (req, res) => {
+
+    const razas = await raza.find({
+        nombre:  { $regex: 'elfo', $options: 'i' }
+    })
+
+    const dbQuery = {
+        raza: { $in: razas }
+    }
+    const pjs = await mPersonaje.find(dbQuery).sort({ nombre: 1 })
+
+    res.send(pjs)
+
+}
+
+// Personajes que estuvieron en el capitulo 1
+const query_find_in = async (req, res) => {
+
+    const dbQuery = {
+        nombre:{ $regex: 'capitulo 1', $options: 'i' }
+    }
+    const capitulo = await capitulo.findOne(dbQuery).populate('personajes')
+    const pjs = capitulo.personajes
+
+    res.send(pjs)
+}
+
+

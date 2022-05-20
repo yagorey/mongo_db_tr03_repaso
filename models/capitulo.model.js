@@ -9,6 +9,9 @@ const schema = {
     orden      : { type: Number, default: 0 },
     anecdotas  : [
         { type: Schema.Types.ObjectId, ref: 'anecdota' }
+    ],
+    personajes:[
+        { type: Schema.Types.ObjectId, ref: 'personaje' }
     ]
 }
 const Esquema = new Schema(schema, params);
