@@ -3,11 +3,9 @@ const Schema = mongoose.Schema;
 
 const params = { timestamps: true, strict: false, strictPopulate: false }
 const schema = {
-    nombre     : { type: String, default: 'Gollum' },
-    direccion  : { type: String, default: 'Hogwarts' },
-    estaAbierto: { type: Boolean, default: true }
+    nombre     : { type: String, default: 'Gollum' }
 }
 const Esquema = new Schema(schema, params);
-const model = mongoose.model('locales', Esquema);
+const model = mongoose.model('tipo_relacion', Esquema);
 
 module.exports = model

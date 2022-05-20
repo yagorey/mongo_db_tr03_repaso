@@ -1,0 +1,12 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const params = { timestamps: true, strict: false, strictPopulate: false }
+const schema = {
+    nombre     : { type: String, default: 'Gollum' },
+    descripcion: { type: String, default: 'Gollum' }
+}
+const Esquema = new Schema(schema, params);
+const model = mongoose.model('habilidad', Esquema);
+
+module.exports = model
